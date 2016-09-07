@@ -1,0 +1,18 @@
+# Codeception Test Suite Configuration
+#
+# Suite for acceptance tests.
+# Perform tests in browser using the WebDriver or PhpBrowser.
+# If you need both WebDriver and PHPBrowser tests - create a separate suite.
+
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver
+        - \Helper\Acceptance
+        - Asserts
+    config:
+        WebDriver:
+            browser: firefox
+            clear_cookies: true
+            url: http://the-internet.herokuapp.com
+            window_size: 1920x1080
