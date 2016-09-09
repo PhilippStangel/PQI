@@ -12,15 +12,15 @@ class HomePage
     public static $loginPasswordFailMessage = 'Your password is invalid';
 
     //Hover
-    public static $image1 = '//div[2]/div/div/div[1]/img';
-    public static $image2 = '//div[2]/div/div/div[2]/img';
-    public static $image3 = '//div[2]/div/div/div[3]/img';
+    public static $image1 = '//div[@class="figure"][1]/img';
+    public static $image2 = '//div[@class="figure"][2]/img';
+    public static $image3 ='//div[@class="figure"][3]/img';
     public static $user1Text = 'user1';
     public static $user2Text = 'user2';
     public static $user3Text = 'user3';
 
     //Table
     public static $columnTitleLastName = 'table#table2 span.last-name';
-    public static $firstRowLastName = '//div[2]/div/div/table[2]/tbody/tr[1]/td[1]';
-    public static $secondRowLastName = '//div[2]/div/div/table[2]/tbody/tr[2]/td[1]';
+    public static $firstRowLastName = '//table[@id="table2"]/tbody/tr[1]';
+    public static $secondRowLastName = '//table[@id="table2"]/tbody/tr[2]';
 }
