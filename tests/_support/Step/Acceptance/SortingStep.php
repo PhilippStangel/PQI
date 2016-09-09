@@ -2,7 +2,7 @@
 
 namespace Step\Acceptance;
 
-use Page\Acceptance\HomePage;
+use Page\Acceptance\SortingPage;
 
 class SortingStep extends \AcceptanceTester
 {
@@ -13,13 +13,13 @@ class SortingStep extends \AcceptanceTester
     {
         $I = $this;
         $I->amOnPage('/tables');
-        $I->click(HomePage::$columnTitleLastName);
-        $this->lastNameRow1 = $I->grabTextFrom(HomePage::$firstRowLastName);
-        $this->lastNameRow2 = $I->grabTextFrom(HomePage::$secondRowLastName);
+        $I->click(SortingPage::$columnTitleLastName);
+        $this->lastNameRow1 = $I->grabTextFrom(SortingPage::$firstRowLastName);
+        $this->lastNameRow2 = $I->grabTextFrom(SortingPage::$secondRowLastName);
         $I->assertLessThan(0,strcmp($this->lastNameRow1, $this->lastNameRow2));
-        $I->click(HomePage::$columnTitleLastName);
-        $this->lastNameRow1 = $I->grabTextFrom(HomePage::$firstRowLastName);
-        $this->lastNameRow2 = $I->grabTextFrom(HomePage::$secondRowLastName);
+        $I->click(SortingPage::$columnTitleLastName);
+        $this->lastNameRow1 = $I->grabTextFrom(SortingPage::$firstRowLastName);
+        $this->lastNameRow2 = $I->grabTextFrom(SortingPage::$secondRowLastName);
         $I->assertGreaterThan(0,strcmp($this->lastNameRow1, $this->lastNameRow2));
     }
 }

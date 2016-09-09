@@ -9,9 +9,7 @@ class ScenariosCest
 {
     public function Scenarios(LoginStep $User, HoversStep $Mouse, SortingStep $Click)
     {
-        $User->loginSuccessful();
-        $User->loginFailUserName();
-        $User->loginFailPassword();
+        $User->loginTests();
         $Mouse->hoverProfilePictures();
         $Click->sortingDataTable();
     }

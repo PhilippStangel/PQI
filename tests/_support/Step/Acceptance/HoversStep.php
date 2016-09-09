@@ -2,7 +2,7 @@
 
 namespace Step\Acceptance;
 
-use Page\Acceptance\HomePage;
+use Page\Acceptance\HoverPage;
 
 
 class HoversStep extends \AcceptanceTester
@@ -11,11 +11,11 @@ class HoversStep extends \AcceptanceTester
     {
         $I = $this;
         $I->amOnPage('/hovers');
-        $I->moveMouseOver(HomePage::$image1);
-        $I->see(HomePage::$user1Text);
-        $I->moveMouseOver(HomePage::$image2);
-        $I->see(HomePage::$user2Text);
-        $I->moveMouseOver(HomePage::$image3);
-        $I->see(HomePage::$user3Text);
+        $I->moveMouseOver(HoverPage::$image1);
+        $I->see(HoverPage::$user1Text);
+        $I->moveMouseOver(HoverPage::$image2);
+        $I->see(HoverPage::$user2Text);
+        $I->moveMouseOver(HoverPage::$image3);
+        $I->see(HoverPage::$user3Text);
     }
 }

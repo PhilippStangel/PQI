@@ -1,39 +1,46 @@
 <?php
 namespace Step\Acceptance;
 
-use Page\Acceptance\HomePage;
+use Page\Acceptance\LoginPage;
 
 class LoginStep extends \AcceptanceTester
 {
-
-    public function loginSuccessful()
+    // Main function
+    public function loginTests()
     {
         $I = $this;
         $I->amOnPage('/login');
-        $I->fillField(HomePage::$userNameInput, user);
-        $I->fillField(HomePage::$passwordInput, password);
-        $I->click(HomePage::$loginButton);
-        $I->see(HomePage::$loginSuccessMessage);
+        $I->loginSuccessful();
+        $I->moveBack();
+        $I->loginFailUserName();
+        $I->loginFailPassword();
     }
 
-    public function loginFailUserName()
+    private function loginSuccessful()
     {
         $I = $this;
-        $I->amOnPage('/login');
-        $I->fillField(HomePage::$userNameInput, wrongUser);
-        $I->fillField(HomePage::$passwordInput, password);
-        $I->click(HomePage::$loginButton);
-        $I->see(HomePage::$loginUserFailMessage);
+        $I->fillField(LoginPage::$userNameInput, user);
+        $I->fillField(LoginPage::$passwordInput, password);
+        $I->click(LoginPage::$loginButton);
+        $I->see(LoginPage::$loginSuccessMessage);
     }
 
-    public function loginFailPassword()
+    private function loginFailUserName()
     {
         $I = $this;
-        $I->amOnPage('/login');
-        $I->fillField(HomePage::$userNameInput, user);
-        $I->fillField(HomePage::$passwordInput, wrongPassword);
-        $I->click(HomePage::$loginButton);
-        $I->see(HomePage::$loginPasswordFailMessage);
+        $I->fillField(LoginPage::$userNameInput, wrongUser);
+        $I->fillField(LoginPage::$passwordInput, password);
+        $I->click(LoginPage::$loginButton);
+        $I->see(LoginPage::$loginUserFailMessage);
+    }
+
+    private function loginFailPassword()
+    {
+        $I = $this;
+        $I->fillField(LoginPage::$userNameInput, user);
+        $I->fillField(LoginPage::$passwordInput, wrongPassword);
+        $I->click(LoginPage::$loginButton);
+        $I->see(LoginPage::$loginPasswordFailMessage);
     }
 
 }
